@@ -1,1 +1,7 @@
 /* custom CSS goes here */
+.jumbotron  {
+    background-color: deepskyblue;
+  }
+.navbar {
+    background-color:deepskyblue;
+}

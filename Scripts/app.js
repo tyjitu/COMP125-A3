@@ -34,17 +34,61 @@
         if (jumbotron) 
         {
             // step 2 create a new element
-            let newParagraph = document.createElement("p");
+            let firstDiv = document.createElement("div");
+            let firstParagraph = document.createElement("p");
+            let secondParagraph = document.createElement("p");
+            let thirdParagraph = document.createElement("p");
+            let fourthParagraph = document.createElement("p");
 
             // step 3 configure the new element
             
             switch (title) {
                 case "home":
-                    newParagraph.textContent =`This is home page.`;
+                    firstDiv.innerHTML =
+                `                
+                <p>
+                    My name is Tamanna Yasmin Jitu. You can call me Tamanna.I am a student in the Software Engineering Technology Program at Centennial College.
+                </p>
+                <p>
+                    I like to reach on my dream goal where I can enjoy my Job and have more and more options to show my creativity. 
+                    My only and one perception now to build up my skills in this sector. 
+                </p>
+                <p>
+                    One of my favorite quotes is:
+                    <br>"Logic will get you from A to Z; imagination will take you everywhere."
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~~Albert Einstein~~~
+                </p>
+                <p align="right">
+                    <img width="230" src="../assets/images/me.png">
+                </p>
+                `;
                     break;
                 case "projects":
-                    newParagraph.textContent =`This is project page.`;
-                    break;
+                    firstDiv.innerHTML =
+                    `                
+                    <p>
+                        In my first semester of Software Eng. Technology, I worked with couple of projects using TextPad and MS Expression Web 4.0(which was discontinued on December 20, 2012 but I still learned it in 2020 😉). Here I like to share some of them.
+                    </p>
+                    <p>
+                        <b>Real state page: </b> It was a seven-page HTML project where I described all about a real estate company and details about some of their special products.
+                    </p>
+                    <p align="right">
+                        <img src="../assets/images/project-1.png">
+                    </p>
+                    <p>
+                    <b>Online Shopping: </b> Here I described about some cosmetic products in details which are sold online.
+                    </p>
+                    <p align="right">
+                        <img src="../assets/images/project-2.png">
+                    </p>
+                    <p>
+                        <b>Instructor evaluation form </b> In this form, student have access to evaluate the instructors and submit that one to the college website.
+                    </p>
+                    <p align="right">
+                        <img src="../assets/images/project-3.png">
+                    </p>                    
+                    `;
+                        break;
                 default:
                     break;
             }
@@ -54,19 +98,21 @@
             // newParagraph.textContent =`This is an example paragraph. Here is the next line.`;
             // }
             // step 4 attach the new element
-            jumbotron.appendChild(newParagraph);
-
+            jumbotron.appendChild(firstDiv);
+            // jumbotron.appendChild(secondParagraph);
+            // jumbotron.appendChild(thirdParagraph);
+            // jumbotron.appendChild(fourthParagraph);
 
             // back to step 2 - create a new element
             let newDiv = document.createElement("div");
 
             // step 3 - configure
-            newDiv.innerHTML =
-                `
-                <p id="secondParagraph">
-                This is the second Paragraph.
-                </p>
-                `;
+            // newDiv.innerHTML =
+            //     `
+            //     <p id="secondParagraph">
+            //     This is the second Paragraph.
+            //     </p>
+            //     `;
 
             // step 4 attach the new element
             jumbotron.appendChild(newDiv);
