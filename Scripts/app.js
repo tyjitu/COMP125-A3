@@ -59,7 +59,7 @@
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~~Albert Einstein~~~
                 </p>
                 <p align="right">
-                    <img width="230" src="./assets/images/me.png">
+                    <img width="230" src="./Assets/images/me.png">
                 </p>
                 `;
                     break;
@@ -73,19 +73,19 @@
                         <b>Real state page: </b> It was a seven-page HTML project where I described all about a real estate company and details about some of their special products.
                     </p>
                     <p align="right">
-                        <img src="./assets/images/project-1.png">
+                        <img src="./Assets/images/project-1.png">
                     </p>
                     <p>
                     <b>Online Shopping: </b> Here I described about some cosmetic products in details which are sold online.
                     </p>
                     <p align="right">
-                        <img src="./assets/images/project-2.png">
+                        <img src="./Assets/images/project-2.png">
                     </p>
                     <p>
                         <b>Instructor evaluation form </b> In this form, student have access to evaluate the instructors and submit that one to the college website.
                     </p>
                     <p align="right">
-                        <img src="./assets/images/project-3.png">
+                        <img src="./Assets/images/project-3.png">
                     </p>                    
                     `;
                         break;
