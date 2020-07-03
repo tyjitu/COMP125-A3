@@ -99,28 +99,15 @@ File description: This file is used for javascript validation
                         break;
                 default:
                     break;
-            }
+            }           
             
-            // if((title === "home"))
-            // {            
-            // newParagraph.textContent =`This is an example paragraph. Here is the next line.`;
-            // }
             // step 4 attach the new element
             jumbotron.appendChild(firstDiv);
-            // jumbotron.appendChild(secondParagraph);
-            // jumbotron.appendChild(thirdParagraph);
-            // jumbotron.appendChild(fourthParagraph);
 
             // back to step 2 - create a new element
             let newDiv = document.createElement("div");
 
-            // step 3 - configure
-            // newDiv.innerHTML =
-            //     `
-            //     <p id="secondParagraph">
-            //     This is the second Paragraph.
-            //     </p>
-            //     `;
+            // step 3 - configure    
 
             // step 4 attach the new element
             jumbotron.appendChild(newDiv);
@@ -133,59 +120,7 @@ File description: This file is used for javascript validation
         return false;
     }
 
-    // function validateForm()
-    // {
-    //     let contactForm = document.forms[0];
-
-    //     if(contactForm)
-    //     {
-    //         contactForm.noValidate = true;
-
-    //         let errorMessage = document.getElementById("errorMessage");
-
-    //         let firstName = document.getElementById("firstName");
-    //         firstName.addEventListener("blur", (event) => 
-    //         {
-    //             if(firstName.value.length < 2)
-    //             {
-    //                 firstName.focus();
-    //                 errorMessage.hidden = false;
-    //                 errorMessage.textContent = "Please enter a Valid First Name with a length of 2 or more characters"; 
-    //             }
-    //             else
-    //             {
-    //                 errorMessage.hidden = true;
-    //             }
-    //         });
-
-    //         let lastName = document.getElementById("lastName");
-    //         lastName.addEventListener("blur", (event) => 
-    //         {
-    //             if(lastName.value.length < 2)
-    //             {
-    //                 lastName.focus();
-    //                 errorMessage.hidden = false;
-    //                 errorMessage.textContent = "Please enter a Valid Last Name with a length of 2 or more characters"; 
-    //             }
-    //             else
-    //             {
-    //                 errorMessage.hidden = true;
-    //             }
-    //         });
-
-
-
-    //         // creates a "hook" or reference to the button element with an id of "submitButton"
-    //         let submitButton = document.getElementById("submitButton");
-
-    //         submitButton.addEventListener("click", (event) =>
-    //         {
-    //             event.preventDefault();
-    //             console.log("Submit Button Clicked");
-    //         });
-    //     }
-    //     return false;
-    // }
+    
 
 
     // named function
@@ -206,22 +141,9 @@ File description: This file is used for javascript validation
         console.warn("content not added to jumbotron - does not exist");
        }
 
-    //    let formValidated = validateForm();
-    //    if(formValidated)
-    //    {
-    //     console.log("successfully validated form");
-    //    }
-    //    else
-    //    {
-    //     console.warn("form not validated - does not exist");
-    //    }
-
     } 
 
-
-
     window.addEventListener("load", Start);
-
 })();
 
 
