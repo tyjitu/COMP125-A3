@@ -30,11 +30,11 @@
                 </li>
                 
                 <li class="nav-item">
-                <a class="nav-link" href="projects.html"><i class="fas fa-map fa-lg"></i> My Projects</a>
+                  <a class="nav-link" href="projects.html"><i class="fas fa-layer-group"></i></i> My Projects</a>
                 </li>
 
                 <li class="nav-item">
-                <a class="nav-link" href="contact.html"><i class="fas fa-at"><i class="fas fa-paper-plane"><i class="fas fa-envelope"></i></i></i></i> Contact Me</a>
+                <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact Me</a>
                 </li>
               </ul>
             </div>
@@ -43,39 +43,40 @@
 
     <main>
         <div class="container">
-            <h1 class="display-4">Contact Us</h1>
+          <div class="jumbotron" style="background-color: rgb(217, 244, 252);">
+            <h1 class="display-5">Contact Me</h1>
             <div id="errorMessage" class="alert alert-danger" role="alert" hidden>
 
             </div>
             <hr>
-            <form id="conactForm">
+            <form id="conactForm" action="index.html">
               <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstName"
-                placeholder="Enter your First Name" required autofocus>
+                placeholder="Input First Name" required autofocus>
               </div>
 
               <div class="form-group">
                 <label for="lastName">Last Name</label>
                 <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="lastName"
-                placeholder="Enter your Last Name" required>
+                placeholder="Input Last Name" required>
               </div>
 
               <div class="form-group">
                 <label for="contactNumber">Contact Number</label>
                 <input type="tel" class="form-control" id="contactNumber" name="contactNumber" aria-describedby="contactNumber"
-                placeholder="Enter your Contact Number" required>
+                placeholder="Input Contact Number" required>
               </div>
 
               <div class="form-group">
                 <label for="emailAddress">Email address</label>
                 <input type="email" class="form-control" id="emailAddress" name="emailAddress" aria-describedby="emailAddress"
-                placeholder="Enter your Contact Number" required>
+                placeholder="Input Email Address" required>
               </div>
 
               <div class="form-group">
-                <label for="shortMessage">Your Message</label>
-                <textarea class="form-control" id="shortMessage"  name="shortMessage" rows="3" aria-describedby="shortMessage"></textarea>
+                <label for="shortMessage">Message</label>
+                <textarea class="form-control" id="shortMessage"  name="shortMessage" rows="3" aria-describedby="shortMessage" placeholder="Write Your Message"></textarea>
               </div>
               <button id="submitButton" type="submit" class="btn btn-primary btn-lg"><i class="fas fa-envelope-square"></i> Send</button>
               <button id="resetButton" type="reset" class="btn btn-warning btn-lg"><i class="fas fa-comment-slash"></i> Reset</button>
@@ -83,6 +84,7 @@
             </form>  
 
         </div>
+      </div>
     </main>
     
     <footer>
