@@ -1,3 +1,11 @@
+/*
+File name: app.js
+Author's name: Tamanna Yasmin Jitu
+Web site name: My Home Page
+Web site URL: https://tyjitu.github.io/COMP125-A2/
+File description: This file is used for javascript validation
+*/
+
 "use strict";
 
 // IIFE -Immediately Ivoked Function Expression
