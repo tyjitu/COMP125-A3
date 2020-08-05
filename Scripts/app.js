@@ -34,6 +34,65 @@ File description: This file is used for javascript validation
         return title;
     }
 
+function loadHomeContent()
+    {
+        console.info("Homepage Loading...");
+
+        // step 1 - creates the XHR object
+        let XHR = new XMLHttpRequest();
+
+        // step 2 - configures the message
+        XHR.open("GET", "./Scripts/paragraphs.json");
+
+        // step 3 - Executes the request
+        XHR.send();
+
+        // step 4 - register the readystate event 
+        XHR.addEventListener("readystatechange", function(){
+            if((XHR.readyState === 4) && (XHR.status === 200))
+            {
+                let dataFile = JSON.parse(XHR.responseText);
+                let allContents = dataFile.paragraphContent;
+                
+                let jumbotron = document.getElementsByClassName("jumbotron")[0];
+                let firstDiv = document.createElement("div");
+                firstDiv.innerHTML = allContents[0].content;
+                jumbotron.appendChild(firstDiv);
+               
+            }
+        });
+    }
+
+    function loadProjectContent()
+    {
+        console.info("Homepage Loading...");
+
+        // step 1 - creates the XHR object
+        let XHR = new XMLHttpRequest();
+
+        // step 2 - configures the message
+        XHR.open("GET", "./Scripts/paragraphs.json");
+
+        // step 3 - Executes the request
+        XHR.send();
+
+        // step 4 - register the readystate event 
+        XHR.addEventListener("readystatechange", function(){
+            if((XHR.readyState === 4) && (XHR.status === 200))
+            {
+                let dataFile = JSON.parse(XHR.responseText);
+                let allContents = dataFile.paragraphContent;
+                
+                let jumbotron = document.getElementsByClassName("jumbotron")[0];
+                let firstDiv = document.createElement("div");
+                firstDiv.innerHTML = allContents[1].content;
+                jumbotron.appendChild(firstDiv);
+               
+            }
+        });
+    }
+
+
     function addParagraphsToJumbotron() 
     {
         // step 1 hook into the spot (element) on the page
@@ -52,51 +111,11 @@ File description: This file is used for javascript validation
             
             switch (title) {
                 case "home":
-                    firstDiv.innerHTML =
-                `                
-                <p>
-                    My name is Tamanna Yasmin Jitu. You can call me Tamanna.I am a student in the Software Engineering Technology Program at Centennial College.
-                </p>
-                <p>
-                    I like to reach on my dream goal where I can enjoy my Job and have more and more options to show my creativity. 
-                    My only and one perception now to build up my skills in this sector. 
-                </p>
-                <p>
-                    One of my favorite quotes is:
-                    <br>"Logic will get you from A to Z; imagination will take you everywhere."
-                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~~Albert Einstein~~~
-                </p>
-                <p align="right">
-                    <img width="230" src="./Assets/images/me.png">
-                </p>
-                `;
+                    loadHomeContent();
                     break;
                 case "projects":
-                    firstDiv.innerHTML =
-                    `                
-                    <p>
-                        In my first semester of Software Eng. Technology, I worked with couple of projects using TextPad and MS Expression Web 4.0(which was discontinued on December 20, 2012 but I still learned it in 2020 😉). Here I like to share some of them.
-                    </p>
-                    <p>
-                        <b>Real state page: </b> It was a seven-page HTML project where I described all about a real estate company and details about some of their special products.
-                    </p>
-                    <p align="right">
-                        <img src="./Assets/images/project-1.png">
-                    </p>
-                    <p>
-                    <b>Online Shopping: </b> Here I described about some cosmetic products in details which are sold online.
-                    </p>
-                    <p align="right">
-                        <img src="./Assets/images/project-2.png">
-                    </p>
-                    <p>
-                        <b>Instructor evaluation form </b> In this form, student have access to evaluate the instructors and submit that one to the college website.
-                    </p>
-                    <p align="right">
-                        <img src="./Assets/images/project-3.png">
-                    </p>                    
-                    `;
-                        break;
+                    loadProjectContent();
+                    break;
                 default:
                     break;
             }           
