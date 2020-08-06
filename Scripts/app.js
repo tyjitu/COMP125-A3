@@ -33,24 +33,6 @@ File description: This file is used for javascript validation
         }
     }
 
-    // function highlightActiveLink_OLD() {
-    //     //console.log(`The title of the page is ${title}`);
-
-    //     let navAnchors = document.querySelectorAll("li a");
-
-    //     for (const anchor of navAnchors) {
-
-    //         let anchorString = anchor.getAttribute("href");
-    //         anchorString = anchorString.substr(0, anchorString.length - 5);
-
-    //         if ((title === "home") && (anchorString === "index") || (title === anchorString)) {
-    //             anchor.className = "nav-link active";
-    //         }
-    //     }
-
-    //     return title;
-    // }
-
     function loadHomeContent() {
         console.info("Homepage Loading...");
         highlightActiveLink();
@@ -152,7 +134,6 @@ File description: This file is used for javascript validation
         });
     }
 
-
     function InitializeSite() {
 
         loadHeader();        
@@ -169,9 +150,6 @@ File description: This file is used for javascript validation
         loadFooter();
 
     }
-
-
-
 
     // named function
     function Start() {
