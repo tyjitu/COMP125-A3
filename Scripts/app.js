@@ -1,113 +1,76 @@
-/*
-File name: app.js
-Author's name: Tamanna Yasmin Jitu
-Web site name: My Home Page
-Web site URL: https://tyjitu.github.io/COMP125-A3/
-File description: This file is used for javascript validation
-*/
-
 "use strict";
 
 // IIFE -Immediately Ivoked Function Expression
 (function () {
 
-    let title = document.title.toLowerCase();
-
-    function highlightActiveLink(id) 
-    {
+    function highlightActiveLink(id) {
         let navAnchors = document.querySelectorAll("li a");
 
-        for (const anchor of navAnchors) 
-        {
-         anchor.className = "nav-link";
+        for (const anchor of navAnchors) {
+            anchor.className = "nav-link";
         }
 
-        for (const anchor of navAnchors) 
-        {
+        for (const anchor of navAnchors) {
             let anchorString = anchor.getAttribute("id");
 
-            if (id === anchorString)
-            {
+            if (id === anchorString) {
                 anchor.className = "nav-link active";
             }
         }
     }
 
-    // function highlightActiveLink_OLD() {
-    //     //console.log(`The title of the page is ${title}`);
 
-    //     let navAnchors = document.querySelectorAll("li a");
+    function setPageContent(id) {
+        console.log("This is: " + id);
+        document.title = id;
 
-    //     for (const anchor of navAnchors) {
+        window.history.pushState("", id, "/" + id.toLowerCase());
 
-    //         let anchorString = anchor.getAttribute("href");
-    //         anchorString = anchorString.substr(0, anchorString.length - 5);
+        highlightActiveLink(id);
+        console.log("Inside setPageContent");
+        // content switcher
+        switch (id) {
+            case "Home":
+                HomeContent();
+                break;
+            case "Projects":
+                ProjectContent();
+                break;
+                case "Contact":
+                    ContactContent();
+                    break;
+                default:
+                break;
+        }
 
-    //         if ((title === "home") && (anchorString === "index") || (title === anchorString)) {
-    //             anchor.className = "nav-link active";
-    //         }
-    //     }
+        loadFooter();
+    }
 
-    //     return title;
-    // }
-
-    function loadHomeContent() {
-        console.info("Homepage Loading...");
-        highlightActiveLink();
+    function ContactContent()
+    {
+        console.info("Contact Content Loading...");
 
         // step 1 - creates the XHR object
         let XHR = new XMLHttpRequest();
 
         // step 2 - configures the message
-        XHR.open("GET", "./Scripts/paragraphs.json");
+        XHR.open("GET", "contact.html");
 
         // step 3 - Executes the request
         XHR.send();
 
-        // step 4 - register the readystate event 
-        XHR.addEventListener("readystatechange", function () {
-            if ((XHR.readyState === 4) && (XHR.status === 200)) {
-                let dataFile = JSON.parse(XHR.responseText);
-                let allContents = dataFile.paragraphContent;
-
-                let jumbotron = document.getElementsByClassName("jumbotron")[0];
-                let firstDiv = document.createElement("div");
-                firstDiv.innerHTML = allContents[0].content;
-                jumbotron.appendChild(firstDiv);
-
+        XHR.addEventListener("readystatechange", function(){
+            if((XHR.readyState === 4) && (XHR.status === 200))
+            {
+                let main = document.getElementsByTagName("main")[0];
+                let mainData = XHR.responseText;
+                main.innerHTML = mainData;
             }
         });
     }
 
-    function loadProjectContent() {
-        console.info("Homepage Loading...");
-
-        // step 1 - creates the XHR object
-        let XHR = new XMLHttpRequest();
-
-        // step 2 - configures the message
-        XHR.open("GET", "./Scripts/paragraphs.json");
-
-        // step 3 - Executes the request
-        XHR.send();
-
-        // step 4 - register the readystate event 
-        XHR.addEventListener("readystatechange", function () {
-            if ((XHR.readyState === 4) && (XHR.status === 200)) {
-                let dataFile = JSON.parse(XHR.responseText);
-                let allContents = dataFile.paragraphContent;
-
-                let jumbotron = document.getElementsByClassName("jumbotron")[0];
-                let firstDiv = document.createElement("div");
-                firstDiv.innerHTML = allContents[1].content;
-                jumbotron.appendChild(firstDiv);
-
-            }
-        });
-    }
-
-    function loadHeader() {
-        console.info("Home Content Loading...");
+    function InitializeSite() {
+        console.info("Header Loading...");
 
         // step 1 - creates the XHR object
         let XHR = new XMLHttpRequest();
@@ -121,16 +84,26 @@ File description: This file is used for javascript validation
         XHR.addEventListener("readystatechange", function () {
             if ((XHR.readyState === 4) && (XHR.status === 200)) {
                 let header = document.getElementsByTagName("header")[0];
-
                 let headerData = XHR.responseText;
-
                 header.innerHTML = headerData;
+                setPageContent("Home");
+
+                let navLinks = document.getElementsByTagName("a");
+
+                for (const link of navLinks) {
+                    link.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        let id = link.getAttribute("id");
+                        setPageContent(id);
+
+                    });
+                }
             }
         });
     }
 
     function loadFooter() {
-        console.info("Home Content Loading...");
+        console.info("Footer Loading...");
 
         // step 1 - creates the XHR object
         let XHR = new XMLHttpRequest();
@@ -143,40 +116,73 @@ File description: This file is used for javascript validation
 
         XHR.addEventListener("readystatechange", function () {
             if ((XHR.readyState === 4) && (XHR.status === 200)) {
-                let header = document.getElementsByTagName("footer")[0];
-
-                let headerData = XHR.responseText;
-
-                header.innerHTML = headerData;
+                let footer = document.getElementsByTagName("footer")[0];
+                let footerData = XHR.responseText;
+                footer.innerHTML = footerData;
             }
         });
     }
 
 
-    function InitializeSite() {
+    function HomeContent() {
+        console.info("Home Content Loading...");
 
-        loadHeader();        
-        switch (title) {
-            case "home":
-                loadHomeContent();
-                break;
-            case "projects":
-                loadProjectContent();
-                break;
-            default:
-                break;
-        }
-        loadFooter();
+        // step 1 - creates the XHR object
+        let XHR = new XMLHttpRequest();
 
+        // step 2 - configures the message        
+        XHR.open("GET", "./Scripts/paragraphs.json");
+
+        // step 3 - Executes the request
+        XHR.send();
+
+        XHR.addEventListener("readystatechange", function () {
+            if ((XHR.readyState === 4) && (XHR.status === 200)) {
+                let dataFile = JSON.parse(XHR.responseText);
+                let allContents = dataFile.paragraphContent;
+
+                let jumbotron = document.getElementsByClassName("jumbotron")[0];
+                jumbotron.innerHTML = allContents[0].content;
+            }
+        });
     }
 
 
+    function ProjectContent() {
+        console.info("Project Content Loading...");
+
+        // step 1 - creates the XHR object
+        let XHR = new XMLHttpRequest();
+
+        // step 2 - configures the message        
+        XHR.open("GET", "./Scripts/paragraphs.json");
+
+        // step 3 - Executes the request
+        XHR.send();
+
+        XHR.addEventListener("readystatechange", function () {
+            if ((XHR.readyState === 4) && (XHR.status === 200)) {
+                let dataFile = JSON.parse(XHR.responseText);
+                let allContents = dataFile.paragraphContent;
+
+                let jumbotron = document.getElementsByClassName("jumbotron")[0];
+                jumbotron.innerHTML = allContents[1].content;
+            }
+        });
+    }
 
 
     // named function
     function Start() {
+        console.log('%cApp Started...', "color:white; font-size: 24px;");
+
         InitializeSite();
     }
 
+
     window.addEventListener("load", Start);
+
 })();
+
+
+
