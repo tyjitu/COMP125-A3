@@ -8,10 +8,6 @@
         {
             "filename": "projects",
             "content" : "<p>In my first semester of Software Eng. Technology, I worked with couple of projects using TextPad and MS Expression Web 4.0(which was discontinued on December 20, 2012 but I still learned it in 2020 😉). Here I like to share some of them. </p><p><b>Real state page: </b> It was a seven-page HTML project where I described all about a real estate company and details about some of their special products. </p><p align=\"right\"><img src=\"./Assets/images/project-1.png\"></p><p><b>Online Shopping: </b> Here I described about some cosmetic products in details which are sold online.</p><p align=\"right\"><img src=\"./Assets/images/project-2.png\"></p><p><b>Instructor evaluation form </b> In this form, student have access to evaluate the instructors and submit that one to the college website.</p><p align=\"right\"><img src=\"./Assets/images/project-3.png\"></p>"
-        },
-        {
-            "filename": "contact",
-            "content" : "RTY"
         }
     ]
 }
